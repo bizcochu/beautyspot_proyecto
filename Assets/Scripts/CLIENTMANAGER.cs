@@ -19,7 +19,7 @@ public class ClientManager : MonoBehaviour
     public Transform doorTarget;
 
     [Header("Economía & UI")]
-    public float currentMoney = 500f;
+    public float currentMoney = 500;
     public TextMeshProUGUI moneyDisplay;
     public Dialogue dialogueUI;
 
@@ -144,7 +144,7 @@ public class ClientManager : MonoBehaviour
 
     void UpdateMoneyUI()
     {
-        if (moneyDisplay != null) moneyDisplay.text = $"Dinero: ${currentMoney:F2}";
+        if (moneyDisplay != null) moneyDisplay.text = currentMoney.ToString("C0");
     }
 
     public void LiberarMaquina(Transform tr)

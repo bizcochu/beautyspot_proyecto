@@ -41,7 +41,7 @@ public class ClickToMoveNoRotation : MonoBehaviour
         if (animator != null)
         {
             bool isWalking = agent.velocity.sqrMagnitude > 0.1f;
-            animator.SetBool("Walking", isWalking);
+            animator.SetBool("isWalking", isWalking);
         }
     }
 }
