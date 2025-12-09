@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 1a8af13daceaa0f49af017123b3ded88
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - clientPrefab: {fileID: 919132149155446097, guid: 3e43053315f312245ab845190aad304e, type: 3}
+  - spawnPoint: {instanceID: 0}
+  - cajaTarget: {instanceID: 0}
+  - corteTarget: {instanceID: 0}
+  - secadoraTarget: {instanceID: 0}
+  - lavadoTarget: {instanceID: 0}
+  - doorTarget: {instanceID: 0}
+  - dialogueUI: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
