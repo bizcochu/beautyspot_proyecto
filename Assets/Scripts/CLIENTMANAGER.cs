@@ -13,9 +13,10 @@ public class ClientManager : MonoBehaviour
 
     [Header("Estaciones de Trabajo")]
     public Transform cajaTarget;
-    public Transform corteTarget;   // Pelo
-    public Transform manosTarget;   // Nuevo: Manicura
-    public Transform piesTarget;    // Nuevo: Pedicura
+    // Ya no necesitamos referencias directas únicas, usaremos el StationManager
+    // public Transform corteTarget;
+    // public Transform manosTarget;
+    // public Transform piesTarget;
     public Transform doorTarget;
 
     [Header("Economía & UI")]
@@ -93,9 +94,9 @@ public class ClientManager : MonoBehaviour
             // Mostrar UI con 3 opciones
             dialogueUI.ShowServiceSelection(
                 clientRequest,
-                () => OnDialogAccepted(client, corteTarget), // Boton Pelo
-                () => OnDialogAccepted(client, manosTarget), // Boton Manos
-                () => OnDialogAccepted(client, piesTarget)   // Boton Pies
+                () => OnDialogAccepted(client, ServiceType.CorteDePelo),
+                () => OnDialogAccepted(client, ServiceType.LavadoDePelo),
+                () => OnDialogAccepted(client, ServiceType.HacerPermanente)
             );
 
             return;
@@ -115,18 +116,29 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    private void OnDialogAccepted(Client client, Transform target)
+    private void OnDialogAccepted(Client client, ServiceType serviceType)
     {
         if (client == null) return;
 
-        // Mover al cliente a la estación elegida por el jugador
-        client.AssignMachineTarget(target);
+        // Buscar una estación libre para ese servicio
+        MachinePoint station = StationManager.Instance.GetAvailableStation(serviceType);
 
-        // Sacar de la cola
-        if (queue.Count > 0 && queue.Peek() == client)
+        if (station != null)
         {
-            queue.Dequeue();
-            UpdateQueuePositions();
+            // Mover al cliente a la estación encontrada
+            client.AssignMachineTarget(station.transform);
+
+            // Sacar de la cola
+            if (queue.Count > 0 && queue.Peek() == client)
+            {
+                queue.Dequeue();
+                UpdateQueuePositions();
+            }
+        }
+        else
+        {
+            Debug.Log("No hay estaciones disponibles para este servicio.");
+            // Aquí tenemos que manejar el caso donde no hay estaciones disponibles
         }
     }
 

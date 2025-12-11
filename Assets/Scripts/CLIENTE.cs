@@ -22,7 +22,7 @@ public class Client : MonoBehaviour
     public MachinePoint targetMachine;
     public Transform exitPoint;
 
-    
+
     public ServiceType requestedService;
 
     private bool isUsingMachine = false;
@@ -30,7 +30,7 @@ public class Client : MonoBehaviour
     private State state = State.Idle;
     private enum State { Searching, Moving, Using, Leaving, Idle }
 
-    
+
     public string[] dialogosCorteDePelo = new string[] {
         "Quiero que me cortes el pelo, pero que no sea demasiado corto.",
         "Necesito un corte rápido, algo fresco pero simple.",
@@ -66,7 +66,7 @@ public class Client : MonoBehaviour
         GenerateRandomRequest();
     }
 
-    
+
     void GenerateRandomRequest()
     {
         int r = Random.Range(0, 3);
@@ -75,7 +75,7 @@ public class Client : MonoBehaviour
         else requestedService = ServiceType.HacerPermanente;
     }
 
-    
+
     public string GetRequestDialogue()
     {
         switch (requestedService)
@@ -123,6 +123,7 @@ public class Client : MonoBehaviour
 
     bool HasReachedDestination()
     {
+        if (!agent.enabled) return true;
         if (agent.pathPending) return false;
         float stoppingThreshold = agent.stoppingDistance + 0.2f;
         float distanceCheck = agent.remainingDistance;
@@ -168,6 +169,14 @@ public class Client : MonoBehaviour
     {
         state = State.Using;
         isUsingMachine = true;
+
+        // Alinear con el punto de asiento si existe
+        if (targetMachine != null && targetMachine.sitPoint != null)
+        {
+            agent.enabled = false; // Desactivar agente para mover manualmente
+            transform.position = targetMachine.sitPoint.position;
+            transform.rotation = targetMachine.sitPoint.rotation;
+        }
 
         if (animator != null)
         {
