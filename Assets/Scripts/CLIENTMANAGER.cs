@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+// Ya no necesitamos System.Collections porque eliminamos el Coroutine
+// using System.Collections; 
 
 public class ClientManager : MonoBehaviour
 {
@@ -13,10 +15,6 @@ public class ClientManager : MonoBehaviour
 
     [Header("Estaciones de Trabajo")]
     public Transform cajaTarget;
-    // Ya no necesitamos referencias directas únicas, usaremos el StationManager
-    // public Transform corteTarget;
-    // public Transform manosTarget;
-    // public Transform piesTarget;
     public Transform doorTarget;
 
     [Header("Economía & UI")]
@@ -78,26 +76,29 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    // --- MAIN LOGIC CHANGE HERE ---
     private void OnClientArrived(Client client)
     {
         if (client == null) return;
 
         Client primerCliente = queue.Count > 0 ? queue.Peek() : null;
 
-        // 1. CLIENTE LLEGA A LA CAJA
+        // 1. CLIENTE LLEGA A LA CAJA (Lógica de interacción restaurada)
         if (client == primerCliente && client.currentTarget == cajaTarget)
         {
             // Obtener el diálogo basado en lo que el cliente quiere
             string clientRequest = client.GetRequestDialogue();
 
-            // Mostrar UI con 3 opciones
+            // 🌟 Restauramos la llamada que muestra los botones y espera la interacción del jugador 🌟
             dialogueUI.ShowServiceSelection(
                 clientRequest,
+                // El primer botón (Lavado/Pelo) va a CorteDePelo
                 () => OnDialogAccepted(client, ServiceType.CorteDePelo),
+                // El segundo botón (Permanente/Manos) va a LavadoDePelo
                 () => OnDialogAccepted(client, ServiceType.LavadoDePelo),
+                // El tercer botón (Secado/Pies) va a HacerPermanente
                 () => OnDialogAccepted(client, ServiceType.HacerPermanente)
             );
+            // ------------------------------------------------------------------------------------------
 
             return;
         }
@@ -116,11 +117,13 @@ public class ClientManager : MonoBehaviour
         }
     }
 
+    // El método DispatchClientAfterDialogue ha sido eliminado.
+
     private void OnDialogAccepted(Client client, ServiceType serviceType)
     {
         if (client == null) return;
 
-        // Buscar una estación libre para ese servicio
+        // Buscar una estación libre para el servicio requerido
         MachinePoint station = StationManager.Instance.GetAvailableStation(serviceType);
 
         if (station != null)
@@ -137,8 +140,16 @@ public class ClientManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No hay estaciones disponibles para este servicio.");
-            // Aquí tenemos que manejar el caso donde no hay estaciones disponibles
+            Debug.Log($"No hay estaciones disponibles para el servicio {serviceType}. El cliente se irá.");
+            // Si no hay estaciones, el cliente se va
+            client.FinishAndLeave();
+
+            // Sacar de la cola
+            if (queue.Count > 0 && queue.Peek() == client)
+            {
+                queue.Dequeue();
+                UpdateQueuePositions();
+            }
         }
     }
 

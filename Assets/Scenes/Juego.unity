@@ -1813,9 +1813,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1626243171}
   texto: {fileID: 661649026}
-  btnPelo: {fileID: 1322720899}
-  btnManos: {fileID: 1817431489}
-  btnPies: {fileID: 442480793}
+  btnLavado: {fileID: 0}
+  btnPermanente: {fileID: 0}
+  btnSecado: {fileID: 0}
 --- !u!1 &518817676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e43053315f312245ab845190aad304e, type: 3}
@@ -2688,6 +2688,7 @@ MonoBehaviour:
   isOccupied: 0
   servicePrice: 150
   sitPoint: {fileID: 680048289}
+  particles: {fileID: 0}
 --- !u!1 &855312706
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,6 +2747,7 @@ MonoBehaviour:
   isOccupied: 0
   servicePrice: 50
   sitPoint: {fileID: 927312507}
+  particles: {fileID: 0}
 --- !u!4 &898470347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
@@ -4977,6 +4979,7 @@ MonoBehaviour:
   isOccupied: 0
   servicePrice: 100
   sitPoint: {fileID: 1163468568}
+  particles: {fileID: 0}
 --- !u!4 &2027156689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e43053315f312245ab845190aad304e, type: 3}
@@ -5739,6 +5742,10 @@ PrefabInstance:
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: looping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: playOnAwake

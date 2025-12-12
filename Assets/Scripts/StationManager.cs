@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random; // Asegúrate de tener esto
 
 public class StationManager : MonoBehaviour
 {
@@ -22,14 +23,25 @@ public class StationManager : MonoBehaviour
 
     public MachinePoint GetAvailableStation(ServiceType type)
     {
+        // 1. Crear una lista de estaciones disponibles
+        List<MachinePoint> availableStations = new List<MachinePoint>();
+
         foreach (var station in allStations)
         {
-            // Buscar una estación que coincida con el tipo de servicio y no esté ocupada
             if (station.serviceType == type && !station.isOccupied)
             {
-                return station;
+                availableStations.Add(station);
             }
         }
+
+        // 2. Elegir una estación aleatoria de la lista de disponibles
+        if (availableStations.Count > 0)
+        {
+            int randomIndex = Random.Range(0, availableStations.Count); // El límite superior es exclusivo
+            return availableStations[randomIndex];
+        }
+
+        // Si no hay ninguna disponible, devuelve null
         return null;
     }
 }
