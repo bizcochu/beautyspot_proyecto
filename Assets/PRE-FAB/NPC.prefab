@@ -93,11 +93,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5925075754524250590}
   agent: {fileID: 3629106053568568458}
+  arrivalParticles: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+  leaveParticles: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
   doorWaypoint: {fileID: 0}
   currentTarget: {fileID: 0}
   lastMachineUsed: {fileID: 0}
   targetMachine: {fileID: 0}
   exitPoint: {fileID: 0}
+  requestedService: 0
+  dialogosCorteDePelo:
+  - Quiero que me cortes el pelo, pero que no sea demasiado corto.
+  - "Necesito un corte r\xE1pido, algo fresco pero simple."
+  - "Mi pelo est\xE1 sin forma, \xBFpodr\xEDas darle estilo?"
+  - Quiero un cambio de look, puedes hacer lo que quieras.
+  - Solo quiero emparejar las puntas, gracias.
+  dialogosLavadoDePelo:
+  - "He tenido un d\xEDa terrible, solo quiero un buen lavado de pelo."
+  - "Mi cabello est\xE1 muy grasoso, necesito un lavado urgente."
+  - "\xBFPueden lavarme el pelo con agua tibia? Me relaja mucho."
+  - Quiero un lavado profundo, tengo muchos productos acumulados.
+  - Solo quiero que me laven el pelo suave, por favor.
+  dialogosHacerPermanente:
+  - Quiero hacerme una permanente suave, algo natural.
+  - "\xBFPodr\xEDas hacerme una permanente? Quiero m\xE1s volumen."
+  - "Estoy lista para una permanente completa, \xA1c\xE1mbiame el look!"
+  - "Quiero rizos definidos, \xBFpuedes hacerme una permanente?"
+  - "Hace tiempo que quiero una permanente, hoy me atrev\xED."
 --- !u!1 &6194185480313063395
 GameObject:
   m_ObjectHideFlags: 0
