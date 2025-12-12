@@ -1813,9 +1813,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1626243171}
   texto: {fileID: 661649026}
-  btnLavado: {fileID: 0}
-  btnPermanente: {fileID: 0}
-  btnSecado: {fileID: 0}
+  btnLavado: {fileID: 1817431489}
+  btnPermanente: {fileID: 442480793}
+  btnSecado: {fileID: 1322720899}
 --- !u!1 &518817676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3e43053315f312245ab845190aad304e, type: 3}
