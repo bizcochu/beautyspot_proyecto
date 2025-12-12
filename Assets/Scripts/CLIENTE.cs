@@ -180,6 +180,7 @@ public class Client : MonoBehaviour
 
         if (animator != null)
         {
+            animator.applyRootMotion = false; // Asegurar que la animación no mueva al personaje
             animator.SetBool("isWalking", false);
             animator.SetBool("isSitting", true);
         }
@@ -208,7 +209,11 @@ public class Client : MonoBehaviour
         isUsingMachine = false;
         state = State.Leaving;
 
-        if (animator != null) animator.SetBool("isSitting", false);
+        if (animator != null)
+        {
+            animator.SetBool("isSitting", false);
+            animator.applyRootMotion = false; // Re-asegurar por si acaso, aunque ya debería estar
+        }
 
         if (doorWaypoint != null) MoveTo(doorWaypoint);
         else Destroy(gameObject, 5f);
