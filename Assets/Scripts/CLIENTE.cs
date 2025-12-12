@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-
 public enum ServiceType { CorteDePelo, LavadoDePelo, HacerPermanente }
 
 [RequireComponent(typeof(NavMeshAgent))]
@@ -12,6 +11,10 @@ public class Client : MonoBehaviour
 {
     public Animator animator;
     public NavMeshAgent agent;
+
+    [Header("Partículas (prefab)")]
+    public ParticleSystem arrivalParticles;
+    public ParticleSystem leaveParticles;
 
     [HideInInspector] public Transform doorWaypoint;
     [HideInInspector] public Transform currentTarget;
@@ -22,14 +25,12 @@ public class Client : MonoBehaviour
     public MachinePoint targetMachine;
     public Transform exitPoint;
 
-
     public ServiceType requestedService;
 
     private bool isUsingMachine = false;
     private bool hasArrivedNotified = false;
     private State state = State.Idle;
     private enum State { Searching, Moving, Using, Leaving, Idle }
-
 
     public string[] dialogosCorteDePelo = new string[] {
         "Quiero que me cortes el pelo, pero que no sea demasiado corto.",
@@ -66,7 +67,6 @@ public class Client : MonoBehaviour
         GenerateRandomRequest();
     }
 
-
     void GenerateRandomRequest()
     {
         int r = Random.Range(0, 3);
@@ -74,7 +74,6 @@ public class Client : MonoBehaviour
         else if (r == 1) requestedService = ServiceType.LavadoDePelo;
         else requestedService = ServiceType.HacerPermanente;
     }
-
 
     public string GetRequestDialogue()
     {
@@ -103,6 +102,7 @@ public class Client : MonoBehaviour
             {
                 hasArrivedNotified = true;
                 OnArrived?.Invoke(this);
+                PlayArrivalParticles();
             }
 
             if (targetMachine != null && state != State.Using && !isUsingMachine)
@@ -112,6 +112,24 @@ public class Client : MonoBehaviour
             }
         }
         UpdateWalkingAnimation();
+    }
+
+    void PlayArrivalParticles()
+    {
+        if (arrivalParticles != null)
+        {
+            arrivalParticles.transform.position = transform.position;
+            arrivalParticles.Play();
+        }
+    }
+
+    void PlayLeaveParticles()
+    {
+        if (leaveParticles != null)
+        {
+            leaveParticles.transform.position = transform.position;
+            leaveParticles.Play();
+        }
     }
 
     void UpdateWalkingAnimation()
@@ -170,17 +188,23 @@ public class Client : MonoBehaviour
         state = State.Using;
         isUsingMachine = true;
 
-        // Alinear con el punto de asiento si existe
         if (targetMachine != null && targetMachine.sitPoint != null)
         {
-            agent.enabled = false; // Desactivar agente para mover manualmente
+            agent.enabled = false;
             transform.position = targetMachine.sitPoint.position;
             transform.rotation = targetMachine.sitPoint.rotation;
         }
 
+        // --- INICIA LAS PARTÍCULAS DE LA ESTACIÓN (CAMBIO) ---
+        if (targetMachine != null && targetMachine.particles != null)
+        {
+            targetMachine.particles.Play();
+        }
+        // ----------------------------------------------------
+
         if (animator != null)
         {
-            animator.applyRootMotion = false; // Asegurar que la animación no mueva al personaje
+            animator.applyRootMotion = false;
             animator.SetBool("isWalking", false);
             animator.SetBool("isSitting", true);
         }
@@ -199,8 +223,17 @@ public class Client : MonoBehaviour
 
     public void FinishAndLeave()
     {
+        PlayLeaveParticles();
+
         if (targetMachine != null)
         {
+            // --- DETIENE LAS PARTÍCULAS DE LA ESTACIÓN (CAMBIO) ---
+            if (targetMachine.particles != null)
+            {
+                targetMachine.particles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+            // -----------------------------------------------------
+
             lastMachineUsed = targetMachine.transform;
             targetMachine.isOccupied = false;
             targetMachine = null;
@@ -212,7 +245,7 @@ public class Client : MonoBehaviour
         if (animator != null)
         {
             animator.SetBool("isSitting", false);
-            animator.applyRootMotion = false; // Re-asegurar por si acaso, aunque ya debería estar
+            animator.applyRootMotion = false;
         }
 
         if (doorWaypoint != null) MoveTo(doorWaypoint);
