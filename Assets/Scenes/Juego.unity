@@ -905,7 +905,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 898470347}
-  - {fileID: 850209077}
   - {fileID: 587022148}
   - {fileID: 1600641611}
   - {fileID: 1552813980}
@@ -921,7 +920,6 @@ Transform:
   - {fileID: 2068857387}
   - {fileID: 865485988}
   - {fileID: 1999453748}
-  - {fileID: 803665340}
   - {fileID: 742294956}
   - {fileID: 791276587}
   m_Father: {fileID: 0}
@@ -1827,7 +1825,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 257986009}
+    m_TransformParent: {fileID: 1213277498}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2ebb15b7071595b4e9b2f43feafe1d54, type: 3}
       propertyPath: m_LocalScale.x
@@ -1843,15 +1841,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ebb15b7071595b4e9b2f43feafe1d54, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.13
+      value: 2.85324
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ebb15b7071595b4e9b2f43feafe1d54, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37389
+      value: -3.5255
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ebb15b7071595b4e9b2f43feafe1d54, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.07
+      value: -5.2026305
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2ebb15b7071595b4e9b2f43feafe1d54, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1883,7 +1881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2ebb15b7071595b4e9b2f43feafe1d54, type: 3}
       propertyPath: m_Name
-      value: SECADORA DE PELO
+      value: HairDryer_Mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2014,6 +2012,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &563368050 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+  m_PrefabInstance: {fileID: 3482513704862129016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &563368051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+  m_PrefabInstance: {fileID: 3482513704862129016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &587022148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a55b021aae7278429a0319e0e1f9c21, type: 3}
@@ -2449,7 +2457,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 50
   orthographic: 0
@@ -2457,7 +2465,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 33
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3632,6 +3640,76 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19cad2a6a579c144cb975da9c78346c4, type: 3}
+--- !u!1 &1213277496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213277498}
+  - component: {fileID: 1213277497}
+  - component: {fileID: 1213277499}
+  m_Layer: 0
+  m_Name: HairDryerMachine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1213277497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213277496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc39177b84c3d944bc8b60aecbb142c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 563368050}
+--- !u!4 &1213277498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213277496}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.06324, y: 3.4955, z: -1.82737}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 803665340}
+  - {fileID: 850209077}
+  - {fileID: 563368051}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1213277499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213277496}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4, y: 5, z: 3}
+  m_Center: {x: 3, y: -1, z: -1.5}
 --- !u!4 &1281254333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 031a1bb1db8320542b1cd00d67ec2309, type: 3}
@@ -4108,7 +4186,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 257986009}
+    m_TransformParent: {fileID: 1213277498}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
       propertyPath: m_LocalScale.x
@@ -4124,15 +4202,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7600002
+      value: 3.22324
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.1516101
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.68
+      value: -1.59263
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4164,7 +4242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ab156dc49fc39f24a8a18d2aba5c1dd9, type: 3}
       propertyPath: m_Name
-      value: SILLA CONCHA PELO
+      value: Chair_Mesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5685,43 +5763,43 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1213277498}
     m_Modifications:
     - target: {fileID: 18320922338579994, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_Name
-      value: Particle System
+      value: 'HairDryer_Particles '
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.22218
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.22218
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.22218
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.35
+      value: 2.7539997
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.12
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.3
+      value: -3.44
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.93105054
+      value: 0.996786
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.36489013
+      value: 0.080110975
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalRotation.y
@@ -5733,7 +5811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 42.802
+      value: 9.19
       objectReference: {fileID: 0}
     - target: {fileID: 3587750285434820090, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -5768,6 +5846,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: ShapeModule.m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 41435d4de97297740892b514e03618f4, type: 3}
@@ -5781,15 +5863,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: InitialModule.startSize.minScalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.startSizeY.minScalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: InitialModule.startSizeZ.minScalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3664156724130935143, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
       propertyPath: InitialModule.startColor.maxColor.g
@@ -5835,6 +5941,14 @@ PrefabInstance:
       propertyPath: UVModule.sprites.Array.data[0].sprite
       value: 
       objectReference: {fileID: 21300000, guid: 41435d4de97297740892b514e03618f4, type: 3}
+    - target: {fileID: 7492841191562062749, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: m_SortingFudge
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7492841191562062749, guid: e6c25c6c2b9049c41aa74d6b42c845e1, type: 3}
+      propertyPath: m_UseCustomVertexStreams
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5859,4 +5973,4 @@ SceneRoots:
   - {fileID: 960568107}
   - {fileID: 447625446}
   - {fileID: 547146841}
-  - {fileID: 3482513704862129016}
+  - {fileID: 1213277498}
