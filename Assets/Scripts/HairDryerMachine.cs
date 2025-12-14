@@ -5,14 +5,14 @@ public class MachineParticles : MonoBehaviour
     public ParticleSystem particles;
     private int npcInside = 0;
 
-    void Start()
+    private void Start()
     {
         particles.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("NPC"))
+        if (other.transform.root.CompareTag("NPC"))
         {
             npcInside++;
 
@@ -23,7 +23,7 @@ public class MachineParticles : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("NPC"))
+        if (other.transform.root.CompareTag("NPC"))
         {
             npcInside--;
 
@@ -35,4 +35,3 @@ public class MachineParticles : MonoBehaviour
         }
     }
 }
-
