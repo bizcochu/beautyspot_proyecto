@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e43053315f312245ab845190aad304e
+guid: 95081f8452ecdcf42a1802f2db5da2fd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -81,96 +81,41 @@ ModelImporter:
     serializedVersion: 3
     human: []
     skeleton:
-    - name: CHARACTER(Clone)
+    - name: PERSONAJE_PELO LARGO(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Armature
-      parentName: CHARACTER(Clone)
-      position: {x: 0, y: 0.44703647, z: 0}
+      parentName: PERSONAJE_PELO LARGO(Clone)
+      position: {x: 0, y: 0.42687386, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: COLUMNA.1
       parentName: Armature
-      position: {x: -0.00008527085, y: 0.000020752306, z: 0.0076266443}
+      position: {x: -0.00000059593157, y: 0.00010236539, z: 0.0077243834}
       rotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-      scale: {x: 1.0000008, y: 0.99999994, z: 1}
-    - name: COLUMNA.2
-      parentName: COLUMNA.1
-      position: {x: -9.293055e-13, y: 0.006174461, z: 9.0711217e-13}
-      rotation: {x: -0.000000029802326, y: -0.00000016391279, z: 0.000000029802326, w: 1}
-      scale: {x: 1.0000004, y: 1, z: 1.000001}
-    - name: HOMBRO.L
-      parentName: COLUMNA.2
-      position: {x: -1.1565548e-12, y: 0.006618949, z: 2.7987346e-12}
-      rotation: {x: 0.8125206, y: -0.0037815575, z: -0.0023725145, w: -0.5829153}
-      scale: {x: 1.000004, y: 1.0000046, z: 1.0000029}
-    - name: ANTEBRAZO.L
-      parentName: HOMBRO.L
-      position: {x: 2.3283063e-11, y: 0.003675607, z: 6.0754246e-10}
-      rotation: {x: -0.17045249, y: -0.005632233, z: 0.02617362, w: -0.9850021}
-      scale: {x: 0.9999985, y: 0.9999967, z: 1}
-    - name: BRAZO.L
-      parentName: ANTEBRAZO.L
-      position: {x: 1.4901161e-10, y: 0.0046979543, z: 4.71482e-10}
-      rotation: {x: -0.0030643495, y: -0.001223174, z: 0.07537251, w: 0.99715}
-      scale: {x: 1.000001, y: 1.0000013, z: 1.0000004}
-    - name: BRAZO.L_end
-      parentName: BRAZO.L
-      position: {x: -0, y: 0.0042593977, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: CABEZA
-      parentName: COLUMNA.2
-      position: {x: -1.1565548e-12, y: 0.006618949, z: 2.7987346e-12}
-      rotation: {x: -0, y: -0, z: -1.3322682e-15, w: 1}
-      scale: {x: 1.000002, y: 1, z: 1.0000024}
-    - name: CABEZA_end
-      parentName: CABEZA
-      position: {x: -0, y: 0.0142969275, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: HOMBRO.R
-      parentName: COLUMNA.2
-      position: {x: -1.0852785e-12, y: 0.006618949, z: 0.00000022705925}
-      rotation: {x: 0.00000033350003, y: 0.5314662, z: 0.8470795, w: -0.00000021088077}
-      scale: {x: 1.0000025, y: 1.0000021, z: 1.0000008}
-    - name: ANTEBRAZO.R
-      parentName: HOMBRO.R
-      position: {x: -1.4551915e-11, y: 0.0036756056, z: -5.7088984e-10}
-      rotation: {x: -0.1804575, y: 0.013639612, z: -0.07412478, w: -0.9806909}
-      scale: {x: 1.0000027, y: 1.0000025, z: 1.0000042}
-    - name: BRAZO.R
-      parentName: ANTEBRAZO.R
-      position: {x: 1.8626451e-11, y: 0.0046979524, z: -6.961636e-10}
-      rotation: {x: -0.030307814, y: 0.0039378544, z: 0.0959346, w: -0.9949184}
-      scale: {x: 0.9999999, y: 1.0000005, z: 1.0000006}
-    - name: BRAZO.R_end
-      parentName: BRAZO.R
-      position: {x: -0, y: 0.0042593977, z: 0}
-      rotation: {x: 0, y: -0, z: -0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
+      scale: {x: 1, y: 0.99999994, z: 1}
     - name: CADERA.L
       parentName: COLUMNA.1
-      position: {x: -9.293055e-13, y: 0, z: 9.0711217e-13}
-      rotation: {x: -0.9857279, y: 0.0026792288, z: -0.13858208, w: 0.09554246}
-      scale: {x: 1.0000006, y: 1.0000005, z: 1.0000024}
+      position: {x: 2.6048989e-14, y: 0, z: -1.8068879e-16}
+      rotation: {x: -0.9815556, y: 0.023418697, z: -0.0761546, w: 0.17378338}
+      scale: {x: 1, y: 1, z: 1}
     - name: MUSLO.L
       parentName: CADERA.L
-      position: {x: 7.4505804e-11, y: 0.0041635022, z: -4.133816e-10}
-      rotation: {x: -0.17452107, y: -0.15619363, z: -0.06076559, w: 0.9702853}
-      scale: {x: 1.0000025, y: 1.0000011, z: 0.9999995}
+      position: {x: -0, y: 0.004163502, z: 7.094913e-11}
+      rotation: {x: 0.17211978, y: -0.035443254, z: 0.064326435, w: -0.9823343}
+      scale: {x: 0.9999999, y: 0.99999976, z: 0.999999}
     - name: PIERNA.L
       parentName: MUSLO.L
-      position: {x: -7.6484863e-10, y: 0.0067584333, z: -1.44355e-10}
-      rotation: {x: -0.10544313, y: 0.98387367, z: 0.08752264, w: -0.11495325}
-      scale: {x: 1.0000027, y: 1.0000066, z: 1.0000036}
+      position: {x: -2.3050233e-10, y: 0.0067584333, z: 4.7060894e-10}
+      rotation: {x: -0.22403644, y: 0.8700015, z: 0.08723434, w: 0.4304593}
+      scale: {x: 0.9999997, y: 1.0000002, z: 1.0000004}
     - name: PIE.L
       parentName: PIERNA.L
-      position: {x: 5.2386893e-11, y: 0.0044823885, z: -7.981725e-11}
-      rotation: {x: -0.0000000135041756, y: -0.0000001163571, z: 0.740987, w: 0.67151946}
-      scale: {x: 1.0000027, y: 1.000002, z: 1.000002}
+      position: {x: -1.13504935e-10, y: 0.0044823885, z: -3.8267897e-10}
+      rotation: {x: -0.000000016889164, y: -0.00000008646857, z: 0.74098706, w: 0.6715193}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
     - name: PIE.L_end
       parentName: PIE.L
       position: {x: -0, y: 0.0020915568, z: 0}
@@ -178,34 +123,89 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: CADERA.R
       parentName: COLUMNA.1
-      position: {x: -9.392306e-13, y: 0, z: 0.00000022705734}
-      rotation: {x: -0.14238451, y: -0.095761664, z: -0.9851674, w: -0.0012711884}
-      scale: {x: 1.0000014, y: 1, z: 1.0000017}
+      position: {x: 1.6123994e-14, y: 0, z: 0.00000022705757}
+      rotation: {x: 0.12968202, y: 0.0137673, z: 0.99142903, w: 0.007843434}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
     - name: MUSLO.R
       parentName: CADERA.R
-      position: {x: -5.5879353e-11, y: 0.0041635013, z: 0.0000000011720211}
-      rotation: {x: 0.17886563, y: -0.15825857, z: -0.061317563, w: -0.9691241}
-      scale: {x: 1.0000005, y: 0.9999997, z: 0.99999714}
+      position: {x: 5.5879353e-11, y: 0.0041635022, z: 1.5083022e-10}
+      rotation: {x: 0.16307573, y: 0.02910092, z: -0.067521535, w: -0.9838701}
+      scale: {x: 0.9999999, y: 0.9999998, z: 0.99999803}
     - name: PIERNA.R
       parentName: MUSLO.R
-      position: {x: -8.1490724e-11, y: 0.006758435, z: -3.0267983e-10}
-      rotation: {x: 0.10932693, y: 0.979057, z: 0.09154823, w: 0.14530666}
-      scale: {x: 1.0000002, y: 1.0000042, z: 1.0000014}
+      position: {x: -2.7939677e-11, y: 0.006758435, z: -6.073969e-10}
+      rotation: {x: 0.25853094, y: 0.9545422, z: 0.02400894, w: 0.14640506}
+      scale: {x: 0.9999997, y: 1.0000001, z: 1.0000004}
     - name: PIE.R
       parentName: PIERNA.R
-      position: {x: -9.604264e-11, y: 0.0044823885, z: 5.4424163e-11}
-      rotation: {x: -0.00000012479721, y: -0.00000006129266, z: -0.740987, w: 0.6715194}
-      scale: {x: 1.0000015, y: 1.0000007, z: 1.000002}
+      position: {x: -5.47152e-11, y: 0.0044823885, z: -4.4638e-10}
+      rotation: {x: -0.00000010671592, y: -0.000000012421381, z: -0.74098706, w: 0.6715194}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: PIE.R_end
       parentName: PIE.R
       position: {x: -0, y: 0.0020915568, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
+    - name: COLUMNA.2
+      parentName: COLUMNA.1
+      position: {x: 2.6048989e-14, y: 0.006174462, z: -1.8068879e-16}
+      rotation: {x: 0, y: -0.00000017881393, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CABEZA
+      parentName: COLUMNA.2
+      position: {x: -1.8707274e-13, y: 0.006618949, z: -1.08291155e-14}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CABEZA_end
+      parentName: CABEZA
+      position: {x: -0, y: 0.0142969275, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HOMBRO.L
+      parentName: COLUMNA.2
+      position: {x: -1.8707274e-13, y: 0.006618949, z: -1.08291155e-14}
+      rotation: {x: 0.7579023, y: -0.018854437, z: -0.006385864, w: -0.65206426}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: ANTEBRAZO.L
+      parentName: HOMBRO.L
+      position: {x: -0, y: 0.0036756082, z: -7.3498996e-10}
+      rotation: {x: 0.12069588, y: -0.00078180444, z: -0.0041452665, w: 0.99268055}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: BRAZO.L
+      parentName: ANTEBRAZO.L
+      position: {x: -7.4505804e-11, y: 0.0046979534, z: 7.625203e-10}
+      rotation: {x: 0.02570049, y: 0.0036410177, z: 0.045849886, w: 0.99861103}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: BRAZO.L_end
+      parentName: BRAZO.L
+      position: {x: -0, y: 0.0042593977, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: HOMBRO.R
+      parentName: COLUMNA.2
+      position: {x: -1.1579564e-13, y: 0.006618949, z: 0.00000022705755}
+      rotation: {x: -0.010041506, y: 0.37180516, z: 0.9282564, w: 0.00041768074}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: ANTEBRAZO.R
+      parentName: HOMBRO.R
+      position: {x: -9.3132255e-12, y: 0.0036756066, z: 0.0000000025189364}
+      rotation: {x: 0.1694104, y: 0.031097395, z: 0.058086302, w: 0.9833408}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: BRAZO.R
+      parentName: ANTEBRAZO.R
+      position: {x: 9.313225e-11, y: 0.004697952, z: 6.0535965e-11}
+      rotation: {x: 0.13125381, y: -0.02063949, z: -0.034233384, w: 0.9905426}
+      scale: {x: 0.9999999, y: 0.9999998, z: 0.99999994}
+    - name: BRAZO.R_end
+      parentName: BRAZO.R
+      position: {x: -0, y: 0.0042593977, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: PIERNA.L.001
       parentName: Armature
       position: {x: -0.0027765178, y: 0.00011223152, z: 0.00022211329}
-      rotation: {x: -0.000000029802322, y: 0.7071067, z: 0.000000029802322, w: -0.7071068}
-      scale: {x: 0.9999999, y: 0.9999994, z: 0.99999964}
+      rotation: {x: -0, y: -0.7071067, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
     - name: PIERNA.L.001_end
       parentName: PIERNA.L.001
       position: {x: -0, y: 0.002807281, z: 0}
@@ -214,45 +214,45 @@ ModelImporter:
     - name: PIERNA.R.001
       parentName: Armature
       position: {x: 0.0027765178, y: 0.00011223152, z: 0.00022211329}
-      rotation: {x: -0.000000029802322, y: -0.7071067, z: -0.000000029802322, w: -0.7071068}
-      scale: {x: 0.9999999, y: 0.9999994, z: 0.99999964}
+      rotation: {x: 0, y: 0.7071067, z: 0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
     - name: PIERNA.R.001_end
       parentName: PIERNA.R.001
       position: {x: -0, y: 0.002807281, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: BRAZO.L
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: BRAZO.R
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: CABELLO
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: CABEZA
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: CUERPO
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: PIERNA.L
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: PIERNA.R
-      parentName: CHARACTER(Clone)
+      parentName: PERSONAJE_PELO LARGO(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
@@ -264,7 +264,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: Armature
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1

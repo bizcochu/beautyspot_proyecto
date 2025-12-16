@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-// Ya no necesitamos System.Collections porque eliminamos el Coroutine
-// using System.Collections; 
 
 public class ClientManager : MonoBehaviour
 {
     [Header("Prefabs y Spawn")]
-    public GameObject clientPrefab;
+    public GameObject[] clientPrefabs;
     public Transform spawnPoint;
 
     [Header("Puntos de cola")]
@@ -46,8 +44,17 @@ public class ClientManager : MonoBehaviour
 
     public void SpawnClient()
     {
-        GameObject obj = Instantiate(clientPrefab, spawnPoint.position, spawnPoint.rotation);
+        if (clientPrefabs == null || clientPrefabs.Length == 0)
+        {
+            Debug.LogError("ClientManager: No hay clientPrefabs asignados.");
+            return;
+        }
+
+        int index = Random.Range(0, clientPrefabs.Length);
+        GameObject obj = Instantiate(clientPrefabs[index], spawnPoint.position, spawnPoint.rotation);
+
         Client client = obj.GetComponent<Client>();
+        if (client == null) return;
 
         client.doorWaypoint = doorTarget;
         client.exitPoint = doorTarget;
@@ -82,28 +89,19 @@ public class ClientManager : MonoBehaviour
 
         Client primerCliente = queue.Count > 0 ? queue.Peek() : null;
 
-        // 1. CLIENTE LLEGA A LA CAJA (Lógica de interacción restaurada)
         if (client == primerCliente && client.currentTarget == cajaTarget)
         {
-            // Obtener el diálogo basado en lo que el cliente quiere
             string clientRequest = client.GetRequestDialogue();
 
-            // 🌟 Restauramos la llamada que muestra los botones y espera la interacción del jugador 🌟
             dialogueUI.ShowServiceSelection(
                 clientRequest,
-                // El primer botón (Lavado/Pelo) va a CorteDePelo
                 () => OnDialogAccepted(client, ServiceType.CorteDePelo),
-                // El segundo botón (Permanente/Manos) va a LavadoDePelo
                 () => OnDialogAccepted(client, ServiceType.LavadoDePelo),
-                // El tercer botón (Secado/Pies) va a HacerPermanente
                 () => OnDialogAccepted(client, ServiceType.HacerPermanente)
             );
-            // ------------------------------------------------------------------------------------------
-
             return;
         }
 
-        // 2. CLIENTE SALE (LLEGA A PUERTA)
         if (client.currentTarget == doorTarget)
         {
             CobrarServicio(client.lastMachineUsed);
@@ -113,25 +111,19 @@ public class ClientManager : MonoBehaviour
             Destroy(client.gameObject);
 
             UpdateQueuePositions();
-            return;
         }
     }
-
-    // El método DispatchClientAfterDialogue ha sido eliminado.
 
     private void OnDialogAccepted(Client client, ServiceType serviceType)
     {
         if (client == null) return;
 
-        // Buscar una estación libre para el servicio requerido
         MachinePoint station = StationManager.Instance.GetAvailableStation(serviceType);
 
         if (station != null)
         {
-            // Mover al cliente a la estación encontrada
             client.AssignMachineTarget(station.transform);
 
-            // Sacar de la cola
             if (queue.Count > 0 && queue.Peek() == client)
             {
                 queue.Dequeue();
@@ -140,11 +132,8 @@ public class ClientManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"No hay estaciones disponibles para el servicio {serviceType}. El cliente se irá.");
-            // Si no hay estaciones, el cliente se va
             client.FinishAndLeave();
 
-            // Sacar de la cola
             if (queue.Count > 0 && queue.Peek() == client)
             {
                 queue.Dequeue();
@@ -153,7 +142,6 @@ public class ClientManager : MonoBehaviour
         }
     }
 
-    // --- ECONOMÍA ---
     public void CobrarServicio(Transform machineTransform)
     {
         if (machineTransform == null) return;
@@ -167,7 +155,8 @@ public class ClientManager : MonoBehaviour
 
     void UpdateMoneyUI()
     {
-        if (moneyDisplay != null) moneyDisplay.text = currentMoney.ToString("C0");
+        if (moneyDisplay != null)
+            moneyDisplay.text = currentMoney.ToString("C0");
     }
 
     public void LiberarMaquina(Transform tr)
