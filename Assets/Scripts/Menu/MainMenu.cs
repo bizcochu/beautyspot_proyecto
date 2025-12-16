@@ -18,9 +18,11 @@ public class MainMenu : MonoBehaviour
     }
 
     public void QuitGame()
-    {
-        Application.Quit();
-    }
+{
+    Debug.Log("Presionaste Salir");
+    Application.Quit();
+}
+
 
     public void PlayGame()
     {
