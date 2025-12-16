@@ -5,13 +5,20 @@ public class ClickToMoveNoRotation : MonoBehaviour
 {
     private NavMeshAgent agent;
 
-    [Header("Modelo hijo (el que debe rotar)")]
-    public Transform childModel; // El modelo que debe rotar hacia donde camina
+    [Header("Modelo hijo (el que rota visualmente)")]
+    public Transform childModel;
+
     private Animator animator;
+
+    [Header("Rotación")]
+    public float rotationSpeed = 8f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        // 🔴 CLAVE: el agente NO rota el root
+        agent.updateRotation = false;
 
         if (childModel != null)
         {
@@ -19,29 +26,52 @@ public class ClickToMoveNoRotation : MonoBehaviour
             if (animator == null)
                 Debug.LogWarning("No se encontró Animator en childModel");
         }
-
-        // Permitir que el agente rote automáticamente para simplificar la rotación
-        agent.updateRotation = true;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Click izquierdo
+        HandleClickMovement();
+        UpdateRotation();
+        UpdateAnimation();
+    }
+
+    void HandleClickMovement()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 agent.SetDestination(hit.point);
             }
         }
+    }
 
-        // Actualizar el parámetro Walking del Animator según la velocidad
-        if (animator != null)
+    void UpdateRotation()
+    {
+        if (childModel == null) return;
+
+        Vector3 velocity = agent.velocity;
+
+        if (velocity.sqrMagnitude > 0.01f)
         {
-            bool isWalking = agent.velocity.sqrMagnitude > 0.1f;
-            animator.SetBool("isWalking", isWalking);
+            Vector3 direction = velocity.normalized;
+            direction.y = 0f;
+
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            childModel.rotation = Quaternion.Slerp(
+                childModel.rotation,
+                targetRotation,
+                Time.deltaTime * rotationSpeed
+            );
         }
+    }
+
+    void UpdateAnimation()
+    {
+        if (animator == null) return;
+
+        bool isWalking = agent.velocity.sqrMagnitude > 0.05f;
+        animator.SetBool("isWalking", isWalking);
     }
 }
